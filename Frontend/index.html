@@ -537,6 +537,11 @@
         var uploader = new window.uppload_Uppload({
           lang: window.uppload_en,
           call: ".uppload-button",
+          compressor: (file) => {
+            return new Promise((resolve, reject) => {
+              resolve(file);
+            }
+          )},
           uploader: window.uppload_xhrUploader({
             endpoint: "http://localhost:5000",
             responseFunction: (responseText) => {
